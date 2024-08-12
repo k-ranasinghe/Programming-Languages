@@ -1,0 +1,2 @@
+let rec length S = S eq '' -> 0|1 + length (Stern S)
+in print(length('ab'))

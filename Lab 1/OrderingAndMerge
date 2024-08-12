@@ -1,0 +1,13 @@
+let alphabet = ('a','b','c','d','e','f', 'g', 'h', 'i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
+
+in let rec order_check S T n =
+    S eq T n -> n
+    | order_check S T (n+1)
+in let index S = order_check S alphabet 1
+in let rec merge x y z = 
+    not(Isstring x) or not(Isstring y)->'Error'|
+    x eq '' & y eq '' -> z
+    | x eq '' & y ne '' -> z @Conc y
+    | x ne '' & y eq '' -> z @Conc x
+    |index (Stem x) < index (Stem y) -> merge (Stern x) y (z @Conc (Stem x)) | merge x (Stern y) (z @Conc (Stem y))
+in Print ( merge 'acegh' 'bdfi' '')

@@ -1,0 +1,26 @@
+let rec FirstN (a) = 
+        ( a >= 0 & a < 10) -> a | 
+        FirstN (a/10)  
+and
+rec Power (b) = 
+        ( b >= 0 & b < 10) -> 0 | 
+        ( (Power (b/10))+1)
+in
+let temp (c) = 
+        (c - ( (FirstN (c) ) * 10 ** (Power c) ) )/10
+in
+let rec LastN (d) = 
+        ( d >= 0 & d < 10) -> d | 
+        LastN (d - ( ( FirstN (d) ) * 10 ** (Power d) ) ) 
+in
+let rec Pal (n) = 
+        (n < 10 & n >= 0) -> true | 
+        ((FirstN (n)) eq (LastN (n))) -> (Pal (temp (n))) | false 
+in
+let PalRange (n,m) = HelperFunc n m nil
+    where rec HelperFunc n m List = 
+        ( m < n ) -> List | 
+        ( Pal (n)) ->  (HelperFunc (n+1) m (List aug n)) | 
+        (HelperFunc (n+1) m List)
+in
+Print ( PalRange (10,200))

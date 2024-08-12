@@ -1,0 +1,62 @@
+let rec Fact n = n eq 1 -> 1| n * Fact (n-1)
+in
+Print (Fact 3)
+
+let pos_neg(X)= X < 0 -> 'Negative' |X > 0 -> 'positive'| 'Zero'
+in 
+Print(pos_neg(0))
+
+let max(a,b,c)=(a>=b & a>=c)->a| (b>=a & b>=c)->b| (c>=b & c>=a)->c | 'error'
+in Print(max(6,20,20))
+
+let Sum(A) = TempSum (A)
+		where rec TempSum (N) = N eq 0 -> 0| TempSum(N-1)+ N
+in Print (Sum (10))
+
+let odd_even(a)= (a/2)*2 eq a->'Even'|'Odd'
+in Print(odd_even(11))
+
+
+
+let rec f(a)= a eq 1 -> 1 
+		      | a le 0 -> 0
+		      | f(a-1) + f(a-2) 
+in
+let fib (n,m) = range_fun n m nil 1
+		where rec range_fun n m L T = (m < x) -> L | (x < n) -> (range_fun n m L (T+1)) | 
+							(range_fun n m ( L aug x) (T+1) )  where x = f(T)
+in
+Print ( fib (1,55))
+
+
+
+
+let rec f_n (a) = 
+        ( a >= 0 & a < 10) -> a | f_n (a/10)  //get the first number
+and
+rec power (b) = 
+        ( b >= 0 & b < 10) -> 0 | ( (power (b/10))+1)
+in
+let temp (c) = 
+        (c - ( (f_n (c) ) * 10 ** (power c) ) )/10
+in
+let rec l_n (d) = 
+        ( d >= 0 & d < 10) -> d | l_n (d - ( ( f_n (d) ) * 10 ** (power d) ) ) //get the last number
+in
+let rec Pal (n) = 
+        (n < 10 & n >= 0) -> true | ((f_n (n)) eq (l_n (n))) -> (Pal (temp (n))) | false //recursively check if the first and last numbers are same.
+in
+let function (n,m) = range_fun n m nil
+  where rec range_fun first_num last_num T = 
+    ( last_num < first_num ) -> T | ( Pal (first_num)) ->  (range_fun (first_num+1) last_num (T aug first_num)) | (range_fun (first_num+1) last_num T)
+in
+Print ( function (10,100))
+
+
+
+
+
+
+
+
+

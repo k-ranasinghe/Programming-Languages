@@ -1,0 +1,5 @@
+let 
+    Sign(a) = a > 0 -> 'Positive' | 
+              a < 0 -> 'Negative' | 'Zero'
+in
+Print(Sign(5))

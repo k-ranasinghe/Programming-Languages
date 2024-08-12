@@ -1,0 +1,22 @@
+let 
+    rec FirstN (a) =                                    // this function gets the first digit of n
+        ( a >= 0 & a < 10) -> a | 
+        FirstN (a/10)  
+    and rec Power (b) =                                 // this function gets the number of digits in n
+        ( b >= 0 & b < 10) -> 0 | 
+        ( (Power (b/10))+1)
+in
+let Temp (c) =                                          // this function removes the first and last digit of n
+        (c - ( (FirstN (c) ) * 10 ** (Power c) ) )/10
+in
+let rec LastN (d) =                                     // this function gets the last digit of n
+        ( d >= 0 & d < 10) -> d | 
+        LastN (d - ( ( FirstN (d) ) * 10 ** (Power d) ) ) 
+in
+let rec Pal (n) = 
+        (n < 10 & n >= 0) -> 'Palindrome' | 
+        ((FirstN (n)) eq (LastN (n))) -> (Pal (Temp (n))) | 'Not a palindrome' 
+in
+Print ( Pal (1023201))                                      // this can give wrong answer if the palindrome includes zeros as 
+                                                        // we can't have zeros on the front of the number as they are automatically
+                                                        // removed by the program

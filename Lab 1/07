@@ -1,0 +1,4 @@
+let 
+    OddEven(a) = 
+        (a/2)*2 eq a -> 'Even' | 'Odd'     
+in Print(OddEven(5))

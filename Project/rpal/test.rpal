@@ -1,0 +1,3 @@
+let sqr (A, B) = Helper (A, B, Order A)
+    where rec Helper (A, B, N) = N eq 1 -> nil | Helper(A, B, N-1) aug ((A N) ** 2 + (B N) ** 2)
+in Print(sqr ((1,2,3), (3,4,5)))

@@ -1,0 +1,6 @@
+let 
+    Max(X,Y,Z) = (X >= Y & X >= Z) -> X | 
+                 (Y >= X & Y >= Z) -> Y | 
+                 (Z >= Y & Z >= X) -> Z | 'ERROR'
+in 
+Print(Max(11, 5, 27))

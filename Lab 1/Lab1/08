@@ -1,0 +1,3 @@
+let 
+	rec Sum (N) = N eq 0 -> 0| Sum(N-1)+ N
+in Print (Sum (30))

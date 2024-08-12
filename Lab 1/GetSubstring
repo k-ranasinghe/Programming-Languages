@@ -1,0 +1,18 @@
+let rec len s = 
+    s eq '' -> 0
+    |1 + len (Stern s)
+in
+let rec subsrt_len s m =
+    m eq 0 -> ''
+    | (Stem s) @Conc (subsrt_len (Stern s) (m-1))
+in let 
+    rec substr_start s n m = 
+    n eq 1 -> subsrt_len s m
+    | substr_start (Stern s) (n-1) m
+in let Substring s n m = 
+                        not(Isstring s) ->'Error'|
+                        (n < 1 or n > len(s)) -> 'Error'|
+                        (m < 0 or n+m > len(s)) ->'Error'|
+                         substr_start s n m
+in Print ( Substring 'abdchduedyedgue' 2 5)
+

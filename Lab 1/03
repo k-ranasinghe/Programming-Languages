@@ -1,0 +1,13 @@
+let 
+	rec Fib(a)= a <= 0 -> 0
+		      | a eq 1 -> 1
+		      | Fib(a-1) + Fib(a-2) 
+in
+let 
+	FibRange (n,m) = HelperFunc n m nil 1
+		where rec HelperFunc n m List a = (m < temp) -> List | 
+									  (temp < n) -> (HelperFunc n m List (a+1)) | 
+									  (HelperFunc n m ( List aug temp) (a+1) ) 
+        where temp = Fib(a)
+in
+Print ( FibRange (0,300))

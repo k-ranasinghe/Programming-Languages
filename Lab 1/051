@@ -1,0 +1,18 @@
+let 
+	rec Digit (N, d) =
+		N >= 0 & N < 10 -> d | Digit(N/10, d+1)
+in
+let 	FirstNum (N) = N/10**(Digit(N,0))
+	and
+    	LastNum (N) = N-(N/10)*10
+in
+let	NewNum (N) = //This condition use to avoid issue of removing leading 0's (Ex: after removing some digit we have 010 as 10)
+		(Digit(N,1) - 2) eq Digit((N - FirstNum(N)*(10**Digit(N,0))), 0) -> (N - FirstNum(N)*(10**Digit(N,0)))/10
+		| LastNum(N/10) eq 0 -> (N - FirstNum(N)*(10**Digit(N,0)))/100
+		| 12
+in
+let	rec isPal (N) = 
+		N eq 0 -> 'Palindrome'
+		|not ((FirstNum (N)) eq (LastNum (N))) -> 'Not a Palindrome'
+		| isPal(NewNum(N))
+in Print(isPal 1023201)
